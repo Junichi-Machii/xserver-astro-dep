@@ -1,0 +1,55 @@
+---
+// component imports
+import MainLayout from "../layouts/MainLayout.astro";
+import anime from "animejs/lib/anime.es.js";
+import { Icon } from "astro-icon";
+import { Sprite } from "astro-icon";
+
+import { formatBlogPosts } from "../js/utils";
+
+// const allPosts = await Astro.glob("./*.md");
+// const formattedPosts = formatBlogPosts(allPosts, {
+//   limit: 3,
+// });
+---
+
+<MainLayout title="My Blog">
+  <div id="container">
+    <div
+      class="sticky top-1/2 left-1/2 text-center sm:text-3xl md:text-4xl lg:text-5xl inview"
+    >
+      <span class="char">J</span>
+      <span class="char">N</span>
+      <span class="char">I</span>
+      <span class="char">C</span>
+      <span class="char">H</span>
+      <span class="char">I</span>
+      <span class="char">&ensp;</span>
+      <span class="char">M</span>
+      <span class="char">A</span>
+      <span class="char">C</span>
+      <span class="char">H</span>
+      <span class="char">I</span>
+      <span class="char">I</span>
+    </div>
+  </div>
+  <div id="cube" style="width: 4em; height: 8em;">
+    <div style="transform: translate3d(0em, 0em, 2em)"><div>A</div></div>
+    <div style="transform: translate3d(4em, 0em, 2em)"><div>B</div></div>
+    …
+    <div style="transform: translate3d(0em, 4em, -2em)"><div>G</div></div>
+    <div style="transform: translate3d(4em, 4em, -2em)"><div>H</div></div>
+  </div>
+</MainLayout>
+
+<style>
+
+@keyframes un-spin {
+  from {
+    transform: rotateY(0turn);
+  }
+  to {
+    transform: rotateY(-1turn);
+  }
+}
+</style>

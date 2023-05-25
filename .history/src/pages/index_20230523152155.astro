@@ -1,0 +1,114 @@
+---
+// component imports
+import MainLayout from "../layouts/MainLayout.astro";
+import anime from "animejs/lib/anime.es.js";
+import { Icon } from "astro-icon";
+import { Sprite } from "astro-icon";
+
+import { formatBlogPosts } from "../js/utils";
+
+// const allPosts = await Astro.glob("./*.md");
+// const formattedPosts = formatBlogPosts(allPosts, {
+//   limit: 3,
+// });
+---
+
+<MainLayout title="My Blog">
+  <div id="container">
+    <div
+      class="cssanimation lePeek sequence top-1/2 left-1/2 text-center sm:text-3xl md:text-4xl lg:text-5xl"
+    >
+    <h1 class="cssanimation lePeek sequence">cssanimation</h1>
+      <span class="char">J</span>
+      <span class="char">N</span>
+      <span class="char">I</span>
+      <span class="char">C</span>
+      <span class="char">H</span>
+      <span class="char">I</span>
+      <span class="char">&ensp;</span>
+      <span class="char">M</span>
+      <span class="char">A</span>
+      <span class="char">C</span>
+      <span class="char">H</span>
+      <span class="char">I</span>
+      <span class="char">I</span>
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  .lePeek span {
+    animation-name: lePeek;
+  }
+  @keyframes lePeek {
+    25% {
+      transform: rotateX(30deg) translateY(10px) rotate(-13deg);
+    }
+    50% {
+      transform: translateY(-22px) rotate(3deg) scale(1.1);
+    }
+  }
+</style>
+
+<script>
+
+window.onload = function() {
+    animateSequence();
+    animateRandom();
+};
+
+function animateSequence() {
+    var a = document.getElementsByClassName('sequence');
+    for (var i = 0; i < a.length; i++) {
+        var $this = a[i];
+        var letter = $this.innerHTML;
+        letter = letter.trim();
+        var str = '';
+        var delay = 100;
+        for (l = 0; l < letter.length; l++) {
+            if (letter[l] != ' ') {
+                str += '<span style="animation-delay:' + delay + 'ms; -moz-animation-delay:' + delay + 'ms; -webkit-animation-delay:' + delay + 'ms; ">' + letter[l] + '</span>';
+                delay += 150;
+            } else
+                str += letter[l];
+        }
+        $this.innerHTML = str;
+    }
+}
+
+function animateRandom() {
+    var a = document.getElementsByClassName('random');
+    for (var i = 0; i < a.length; i++) {
+        var $this = a[i];
+        var letter = $this.innerHTML;
+        letter = letter.trim();
+        var delay = 70;
+        var delayArray = new Array;
+        var randLetter = new Array;
+        for (j = 0; j < letter.length; j++) {
+            while (1) {
+                var random = getRandomInt(0, (letter.length - 1));
+                if (delayArray.indexOf(random) == -1)
+                    break;
+            }
+            delayArray[j] = random;
+        }
+        for (l = 0; l < delayArray.length; l++) {
+            var str = '';
+            var index = delayArray[l];
+            if (letter[index] != ' ') {
+                str = '<span style="animation-delay:' + delay + 'ms; -moz-animation-delay:' + delay + 'ms; -webkit-animation-delay:' + delay + 'ms; ">' + letter[index] + '</span>';
+                randLetter[index] = str;
+            } else
+                randLetter[index] = letter[index];
+            delay += 80;
+        }
+        randLetter = randLetter.join("");
+        $this.innerHTML = randLetter;
+    }
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+</script>

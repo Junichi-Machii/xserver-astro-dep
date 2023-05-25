@@ -1,0 +1,67 @@
+---
+// component imports
+import MainLayout from "../layouts/MainLayout.astro";
+import anime from "animejs/lib/anime.es.js";
+import { Icon } from "astro-icon";
+import { Sprite } from "astro-icon";
+
+import { formatBlogPosts } from "../js/utils";
+
+// const allPosts = await Astro.glob("./*.md");
+// const formattedPosts = formatBlogPosts(allPosts, {
+//   limit: 3,
+// });
+---
+
+<MainLayout title="My Blog">
+    <div id="container">
+      <div
+        class="sticky top-1/2 left-1/2 text-center sm:text-3xl md:text-4xl lg:text-5xl inview">
+        <span class="char">J</span>
+        <span class="char">N</span>
+        <span class="char">I</span>
+        <span class="char">C</span>
+        <span class="char">H</span>
+        <span class="char">I</span>
+        <span class="char">&ensp;</span>
+        <span class="char">M</span>
+        <span class="char">A</span>
+        <span class="char">C</span>
+        <span class="char">H</span>
+        <span class="char">I</span>
+        <span class="char">I</span>
+      </div>
+    </div>
+  <div id="cube" style="width: 4em; height: 8em;">
+    <div style="transform: translate3d(0em, 0em, 2em)">A</div>
+    <div style="transform: translate3d(4em, 0em, 2em)">B</div>
+    <div style="transform: translate3d(0em, 4em, -2em)">G</div>
+    <div style="transform: translate3d(4em, 4em, -2em)">H</div>
+  </div>
+</MainLayout>
+
+<style>
+
+#cube {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: spin 20s linear infinite;
+}
+
+#cube>div {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateX(-0.1turn) rotateY(0turn);
+  }
+
+  to {
+    transform: rotateX(-0.1turn) rotateY(1turn);
+  }
+}
+
+
+</style>
