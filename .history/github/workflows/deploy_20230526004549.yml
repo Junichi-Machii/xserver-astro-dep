@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - main
+name: Build and Deploy
+jobs:
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action     
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@2.0.0
+        env:
+          server: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+            local-dir: ./dist/
+            server-dir: ${{ secrets.FTP_SERVER_DIR }}
+
+
+
+        
