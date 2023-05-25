@@ -27,7 +27,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.3.1
         with:
           server: ${{ secrets.sv711.xserver.jp }}
-          username: ${{ secrets.jun878338 }}
-          password: ${{ secrets.0182Ronnkunn1982 }}
+          username: ${{ secrets.portfolio@office-machii.com }}
+          password: ${{ secrets.0182ronnkunn }}
           local-dir: ./dist/
-          server-dir: ${{ secrets./office-machii.com/public_html/ }}
+          server-dir: ${{ secrets./office-machii.com/public_html/portfolio }}

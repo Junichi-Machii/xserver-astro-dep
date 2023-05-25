@@ -28,6 +28,6 @@ jobs:
         with:
           server: ${{ secrets.sv711.xserver.jp }}
           username: ${{ secrets.jun878338 }}
-          password: ${{ secrets.0182Ronnkunn1982 }}
+          password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          server-dir: ${{ secrets./office-machii.com/public_html/ }}
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
