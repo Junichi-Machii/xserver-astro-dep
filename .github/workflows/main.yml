@@ -1,12 +1,5 @@
-<<<<<<< HEAD
 
-
-name:  Deploy website on push
 on: push
-=======
-on: push
-name: 🚀 Deploy website on push
->>>>>>> 670814c1532df3b5c944284128ad4ea4edf7f7b7
 jobs:
   web-deploy:
     name: 🎉 Deploy
@@ -31,5 +24,5 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-            local-dir: ./dist/
-    
+          local-dir: ./dist/
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
