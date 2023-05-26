@@ -1,7 +1,9 @@
 
 
-name:  Deploy website on push
 on: push
+push:
+  branches: [main]
+name:  Deploy website on push
 jobs:
   deploy:
     name:  Deploy
